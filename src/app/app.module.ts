@@ -6,13 +6,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './components/header/header.component';
 import { QuoteContainerComponent } from './components/quote-container/quote-container.component';
 import { QuoteComponent } from './components/quote/quote.component';
+import { QuoteDetailsComponent } from './components/quote-details/quote-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     QuoteContainerComponent,
-    QuoteComponent
+    QuoteComponent,
+    QuoteDetailsComponent
   ],
   imports: [
     BrowserModule,

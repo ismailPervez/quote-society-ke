@@ -17,7 +17,8 @@ export class QuoteComponent implements OnInit {
       author: "john wick",
       user: "ismailpervez",
       upvotes: 0,
-      downvotes: 0
+      downvotes: 0,
+      mostLiked: false
     },
     {
       id: 2,
@@ -25,7 +26,8 @@ export class QuoteComponent implements OnInit {
       author: "bruce lee",
       user: "ismailpervez",
       upvotes: 0,
-      downvotes: 0
+      downvotes: 0,
+      mostLiked: false
     },
     {
       id: 3,
@@ -33,7 +35,8 @@ export class QuoteComponent implements OnInit {
       author: "mahatma gandi",
       user: "ismailpervez",
       upvotes: 0,
-      downvotes: 0
+      downvotes: 0,
+      mostLiked: false
     }
   ]
 
@@ -56,20 +59,35 @@ export class QuoteComponent implements OnInit {
       }
     })
 
-    this.quotes = this.quotes.sort(this.sortVotes)
-    console.log(this.quotes)
+    this.sortVotes()
   }
 
   // getting the quote with the highest upvote
-  sortVotes(a: any, b: any) {
-    if ( a.upvotes > b.upvotes ){
-      return -1;
-    }
-    if ( a.upvotes < b.upvotes ){
-      return 1;
-    }
-    return 0;
+  sortVotes() {
+    var mostUpvotes = 0;
+    var mostUpvotesID: any;
+    this.quotes.map(quote => {
+      if (mostUpvotes < quote.upvotes) {
+        mostUpvotes = quote.upvotes;
+        mostUpvotesID = quote.id;
+        quote.mostLiked = true;
+      }
+
+      else {
+        quote.mostLiked = false;
+      }
+    })
+
+    this.quotes.map(quote => {
+      if (quote.id !== mostUpvotesID) {
+        quote.mostLiked = false;
+      }
+    })
   }
+
+  /**
+   * I think, quote should have another property called mostLiked, which will be a boolean and all will start out as false, but as a user upvotes, and the sortVotes() method runs, we update the quote property mostLiked to true for the quote which has most upvotes
+   */
 
 
   // after getting the upvote data from the child component, we need to update the quotes, specifically, the quote item with the gotten id from child component

@@ -8,6 +8,11 @@
     padding: 1% 2%;
 }
 
+.quote.mostliked {
+    background-color: #ED2B33FF;
+    color: white;
+}
+
 .quote-content {
     font-weight: bold;
 }

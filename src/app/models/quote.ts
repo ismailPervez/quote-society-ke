@@ -5,4 +5,5 @@ export class Quote {
     user: string;
     upvotes: number;
     downvotes: number;
+    mostLiked: boolean;
 }

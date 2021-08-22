@@ -40,4 +40,8 @@ export class QuoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getUpvotes(upvotes: number) {
+    console.log(upvotes)
+  }
+
 }

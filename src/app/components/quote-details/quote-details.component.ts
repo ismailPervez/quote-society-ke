@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Quote } from 'src/app/models/quote';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,6 +13,11 @@ export class QuoteDetailsComponent implements OnInit {
   // since we are just accessing a single quote, we do not need [] after Quote, like this Quote[]
   @Input() quote: Quote;
 
+  // now we need to take the upvotes and move it to the parent component so that we can add some styling to the quote that has most upvotes
+  @Output() notify: EventEmitter<number> = new EventEmitter<number>()
+
+  // everytime we upvote a quote, the event emmitter will send the current upvotes to the parent component
+
   // defining the icons that will act us our upvote and downvote button
   upvoteBtn = faArrowUp;
   downvoteBtn = faArrowDown;
@@ -25,6 +30,7 @@ export class QuoteDetailsComponent implements OnInit {
   // upvoting and downvoting functions
   upvote() {
     this.quote.upvotes += 1;
+    this.notify.emit(this.quote.upvotes);
   }
 
   downvote() {

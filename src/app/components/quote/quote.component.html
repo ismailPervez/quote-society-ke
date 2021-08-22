@@ -1,4 +1,4 @@
 <div class="quote" *ngFor="let quote of quotes">
     <p class="quote-content">{{ quote.content }}</p>
-    <app-quote-details [quote]="quote"></app-quote-details>
+    <app-quote-details [quote]="quote" (notify)="getUpvotes($event)"></app-quote-details>
 </div>

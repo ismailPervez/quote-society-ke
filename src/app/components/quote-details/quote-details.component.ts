@@ -14,7 +14,7 @@ export class QuoteDetailsComponent implements OnInit {
   @Input() quote: Quote;
 
   // now we need to take the upvotes and move it to the parent component so that we can add some styling to the quote that has most upvotes
-  @Output() notify: EventEmitter<number> = new EventEmitter<number>()
+  @Output() notify: EventEmitter<object> = new EventEmitter<object>()
 
   // everytime we upvote a quote, the event emmitter will send the current upvotes to the parent component
 
@@ -30,7 +30,7 @@ export class QuoteDetailsComponent implements OnInit {
   // upvoting and downvoting functions
   upvote() {
     this.quote.upvotes += 1;
-    this.notify.emit(this.quote.upvotes);
+    this.notify.emit({id: this.quote.id, upvotes: this.quote.upvotes});
   }
 
   downvote() {

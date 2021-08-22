@@ -1,3 +1,10 @@
 <div class="quote" *ngFor="let quote of quotes">
-    <p>{{ quote.content }}</p>
+    <p class="quote-content">{{ quote.content }}</p>
+    <div class="quote-details">
+        <p>- {{ quote.author }}</p>
+        <div>
+            <p>upvotes: {{ quote.upvotes }} downvotes: {{ quote.downvotes }}</p>
+        </div>
+        <p>posted by: {{ quote.user }}</p>
+    </div>
 </div>

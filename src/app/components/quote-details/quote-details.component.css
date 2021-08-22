@@ -1,0 +1,12 @@
+.votes {
+    display: flex;
+}
+
+.votes > div {
+    margin: 1% 2%;
+    font-size: 17px;
+}
+
+.icon-btn {
+    cursor: pointer;
+}

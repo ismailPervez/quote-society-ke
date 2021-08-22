@@ -3,8 +3,15 @@
 -->
 <div class="quote-details">
     <p>- {{ quote.author }}</p>
-    <div>
-        <p>upvotes: {{ quote.upvotes }} downvotes: {{ quote.downvotes }}</p>
-    </div>
     <p>posted by: {{ quote.user }}</p>
+    <div class="votes">
+        <div class="upvote">
+            <fa-icon class="icon-btn" [icon]="upvoteBtn" (click)="upvote()"></fa-icon>
+            {{ quote.upvotes }}
+        </div>
+        <div class="downvote">
+            <fa-icon class="icon-btn" [icon]="downvoteBtn" (click)="downvote()"></fa-icon>
+            {{ quote.downvotes }}
+        </div>
+    </div>
 </div>

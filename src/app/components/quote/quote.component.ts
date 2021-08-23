@@ -21,6 +21,7 @@ export class QuoteComponent implements OnChanges {
       user: "ismailpervez",
       upvotes: 0,
       downvotes: 0,
+      createDate: new Date(),
       mostLiked: false
     },
     {
@@ -30,6 +31,7 @@ export class QuoteComponent implements OnChanges {
       user: "ismailpervez",
       upvotes: 0,
       downvotes: 0,
+      createDate: new Date(),
       mostLiked: false
     },
     {
@@ -39,6 +41,7 @@ export class QuoteComponent implements OnChanges {
       user: "ismailpervez",
       upvotes: 0,
       downvotes: 0,
+      createDate: new Date(),
       mostLiked: false
     }
   ]
@@ -46,7 +49,6 @@ export class QuoteComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("changes: ", changes["newQuote"].currentValue)
     // update the quotes
     if (changes["newQuote"].currentValue !== undefined) {
       let quote = changes["newQuote"].currentValue

@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
   toggleForm() {
     this.formActiveStatus.emit(true);
+    console.log("toggled")
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Quote } from 'src/app/models/quote';
 
@@ -7,20 +7,25 @@ import { Quote } from 'src/app/models/quote';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnChanges {
 
   // getting data from app component - parent component
   @Input() formActiveStatus: boolean;
   // emmit/send the new created quote to the quote component
   @Output() sendNewQuote: EventEmitter<Quote> = new EventEmitter<Quote>();
 
+  // value that will be used
+  formStatus: boolean;
+
   closeBtn = faTimes;
 
   constructor() { }
 
   // create a new quote object and update it from values in field
-  newQuote = new Quote(0, "quote content", "author", "user", 0, 0, false);
-  ngOnInit(): void {
+  newQuote = new Quote(0, "quote content", "author", "user", 0, 0, new Date(), false);
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("status is: ", changes["formActiveStatus"].currentValue)
+    this.formStatus = changes["formActiveStatus"].currentValue
   }
 
   // form submit
@@ -34,6 +39,12 @@ export class FormComponent implements OnInit {
       // console.log(this.newQuote);
       this.sendNewQuote.emit(this.newQuote)
     }
+  }
+
+  // close popup 
+  closeForm() {
+    this.formStatus = !this.formStatus;
+    console.log(this.formStatus)
   }
 
 }

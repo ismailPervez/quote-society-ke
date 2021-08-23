@@ -16,8 +16,8 @@ export class QuoteComponent implements OnChanges {
   quotes: Quote[] = [
     {
       id: 1,
-      content: "use this web app, its cool",
-      author: "Quote Society Team",
+      content: "speak a good word or remain silent",
+      author: "Prophet Muhammad (peace be upon him)",
       user: "ismailpervez",
       upvotes: 0,
       downvotes: 0,

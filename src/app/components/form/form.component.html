@@ -1,4 +1,4 @@
-<div class="form-overlay active">
+<div [ngClass]="formActiveStatus ? 'form-overlay active' : 'form-overlay'">
     <form>
         <fa-icon class="icon-btn" [icon]="closeBtn"></fa-icon>
         <h1>create quote</h1>

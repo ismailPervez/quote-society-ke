@@ -25,6 +25,7 @@
     background-color: rgba(0, 0, 0, 0.575);
     display: grid;
     place-items: center;
+    transform: scale(1);
 }
 
 .btn {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,6 +7,9 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+
+  // getting data from app component - parent component
+  @Input() formActiveStatus: boolean;
 
   closeBtn = faTimes;
 

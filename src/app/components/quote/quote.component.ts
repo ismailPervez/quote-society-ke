@@ -16,28 +16,8 @@ export class QuoteComponent implements OnChanges {
   quotes: Quote[] = [
     {
       id: 1,
-      content: "this is a quote",
-      author: "john wick",
-      user: "ismailpervez",
-      upvotes: 0,
-      downvotes: 0,
-      createDate: new Date(),
-      mostLiked: false
-    },
-    {
-      id: 2,
-      content: "be like water",
-      author: "bruce lee",
-      user: "ismailpervez",
-      upvotes: 0,
-      downvotes: 0,
-      createDate: new Date(),
-      mostLiked: false
-    },
-    {
-      id: 3,
-      content: "learn like you will live forever",
-      author: "mahatma gandi",
+      content: "use this web app, its cool",
+      author: "Quote Society Team",
       user: "ismailpervez",
       upvotes: 0,
       downvotes: 0,

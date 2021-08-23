@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   // this is the value that will be sent to the main app component and then sent to form component in order to toggle it
-  @Output() formActiveStatus: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output() formActiveStatus: EventEmitter<number> = new EventEmitter<number>()
 
   constructor() { }
 
@@ -16,8 +16,9 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleForm() {
-    this.formActiveStatus.emit(true);
-    console.log("toggled")
+    var number = Math.random() * 10;
+    this.formActiveStatus.emit(number);
+    console.log("toggled: ", number);
   }
 
 }

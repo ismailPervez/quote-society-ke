@@ -7,11 +7,11 @@ import { Quote } from './models/quote';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  activeStatus: boolean = false;
+  activeStatus: number;
   newQuote: Quote;
 
   // data for toggling form
-  setActiveStatus(data: boolean) {
+  setActiveStatus(data: number) {
     this.activeStatus = data
   }
 

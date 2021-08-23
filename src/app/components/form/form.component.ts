@@ -10,12 +10,12 @@ import { Quote } from 'src/app/models/quote';
 export class FormComponent implements OnChanges {
 
   // getting data from app component - parent component
-  @Input() formActiveStatus: boolean;
+  @Input() formActiveStatus: number;
   // emmit/send the new created quote to the quote component
   @Output() sendNewQuote: EventEmitter<Quote> = new EventEmitter<Quote>();
 
   // value that will be used
-  formStatus: boolean;
+  formStatus: number;
 
   closeBtn = faTimes;
 
@@ -24,6 +24,7 @@ export class FormComponent implements OnChanges {
   // create a new quote object and update it from values in field
   newQuote = new Quote(0, "quote content", "author", "user", 0, 0, new Date(), false);
   ngOnChanges(changes: SimpleChanges): void {
+    console.log("onChanges has fired!")
     console.log("status is: ", changes["formActiveStatus"].currentValue)
     this.formStatus = changes["formActiveStatus"].currentValue;
 
@@ -44,7 +45,7 @@ export class FormComponent implements OnChanges {
 
   // close popup 
   closeForm() {
-    this.formStatus = !this.formStatus;
+    this.formStatus = -this.formStatus;
     console.log(this.formStatus)
   }
 

@@ -31,7 +31,7 @@ export class FormComponent implements OnInit {
     }
 
     else {
-      console.log(this.newQuote);
+      // console.log(this.newQuote);
       this.sendNewQuote.emit(this.newQuote)
     }
   }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Quote } from 'src/app/models/quote';
 
 @Component({
@@ -6,7 +6,7 @@ import { Quote } from 'src/app/models/quote';
   templateUrl: './quote.component.html',
   styleUrls: ['./quote.component.css']
 })
-export class QuoteComponent implements OnInit {
+export class QuoteComponent implements OnChanges {
 
   newData: object;
 
@@ -45,7 +45,18 @@ export class QuoteComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("changes: ", changes["newQuote"].currentValue)
+    // update the quotes
+    if (changes["newQuote"].currentValue !== undefined) {
+      let quote = changes["newQuote"].currentValue
+
+      // before pushing to quote / updating the quotes
+      // lets check the length of the quotes array and set the id of the new quote to the last index
+      var quotesLength = this.quotes.length
+      quote.id = quotesLength + 1;
+      this.quotes.push(quote);
+    }
   }
 
   getUpvotes(data: object) {

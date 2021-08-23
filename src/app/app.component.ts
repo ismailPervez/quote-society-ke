@@ -20,7 +20,7 @@ export class AppComponent {
    * after getting the new quote, we need to send it to the quote component - which means it will first pass through quote-container component
    */
   getNewQuote(data: Quote) {
-    console.log(data)
+    // console.log(data)
     this.newQuote = data;
   }
 }

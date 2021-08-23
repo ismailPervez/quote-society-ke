@@ -22,7 +22,7 @@ export class FormComponent implements OnChanges {
   constructor() { }
 
   // create a new quote object and update it from values in field
-  newQuote = new Quote(0, "quote content", "author", "user", 0, 0, new Date(), false);
+  newQuote = new Quote(0, "", "", "", 0, 0, new Date(), false);
   ngOnChanges(changes: SimpleChanges): void {
     console.log("onChanges has fired!")
     console.log("status is: ", changes["formActiveStatus"].currentValue)
@@ -32,13 +32,30 @@ export class FormComponent implements OnChanges {
 
   // form submit
   submit(formDetails: any) {
-    console.log('submitted!', formDetails.form.invalid)
-    if (formDetails.form.invalid) {
-      alert("make sure to fill in any fields!")
+    // console.log('submitted!', formDetails.form.invalid)
+    // console.log(formDetails)
+    // if (formDetails.form.invalid) {
+    //   alert("make sure to fill in any fields!")
+    // }
+
+    // else {
+    //   // console.log(this.newQuote);
+    //   this.sendNewQuote.emit(this.newQuote)
+    // }
+
+    if (!this.newQuote.content) {
+      alert("please add the quote!");
+    }
+
+    else if (!this.newQuote.author) {
+      alert("please add an author");
+    }
+
+    else if (!this.newQuote.user) {
+      alert("please add a username for the user")
     }
 
     else {
-      // console.log(this.newQuote);
       this.sendNewQuote.emit(this.newQuote)
     }
   }

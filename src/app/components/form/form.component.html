@@ -3,11 +3,11 @@
         <fa-icon class="icon-btn" [icon]="closeBtn" (click)="closeForm()"></fa-icon>
         <h1>create quote</h1>
         <label>quote content</label>
-        <input required minlength="15" [(ngModel)]="newQuote.content" name="quote" type="text" placeholder="enter the quote..." ngModel>
+        <input required minlength="10" [(ngModel)]="newQuote.content" name="quote" type="text" placeholder="enter the quote..." ngModel>
         <label>quote author</label>
-        <input required minlength="5" [(ngModel)]="newQuote.author" name="author" type="text" placeholder="enter the name of the author..." ngModel>
+        <input required minlength="4" [(ngModel)]="newQuote.author" name="author" type="text" placeholder="enter the name of the author..." ngModel>
         <label>user posted</label>
-        <input required minlength="5" [(ngModel)]="newQuote.user" name="user" type="text" placeholder="enter the name of the user..." ngModel>
+        <input required minlength="4" [(ngModel)]="newQuote.user" name="user" type="text" placeholder="enter the name of the user..." ngModel>
         <button type="submit" class="btn">post quote</button>
     </form>
 </div>

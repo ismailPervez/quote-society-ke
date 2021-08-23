@@ -32,3 +32,7 @@ input:focus {
 .btn {
     margin-bottom: 3%;
 }
+
+.error {
+    color: #ED2B33FF;
+}

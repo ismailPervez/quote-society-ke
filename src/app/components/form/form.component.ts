@@ -25,7 +25,8 @@ export class FormComponent implements OnChanges {
   newQuote = new Quote(0, "quote content", "author", "user", 0, 0, new Date(), false);
   ngOnChanges(changes: SimpleChanges): void {
     console.log("status is: ", changes["formActiveStatus"].currentValue)
-    this.formStatus = changes["formActiveStatus"].currentValue
+    this.formStatus = changes["formActiveStatus"].currentValue;
+
   }
 
   // form submit

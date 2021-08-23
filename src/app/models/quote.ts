@@ -13,6 +13,7 @@ export class Quote {
         this.author = author;
         this.user = user;
         this.upvotes = upvotes;
+        this.downvotes = downvotes;
         this.mostLiked = mostLiked;
     }
 }

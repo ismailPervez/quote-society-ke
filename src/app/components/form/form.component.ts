@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Quote } from 'src/app/models/quote';
 
@@ -11,6 +11,8 @@ export class FormComponent implements OnInit {
 
   // getting data from app component - parent component
   @Input() formActiveStatus: boolean;
+  // emmit/send the new created quote to the quote component
+  @Output() sendNewQuote: EventEmitter<Quote> = new EventEmitter<Quote>();
 
   closeBtn = faTimes;
 
@@ -26,6 +28,11 @@ export class FormComponent implements OnInit {
     console.log('submitted!', formDetails.form.invalid)
     if (formDetails.form.invalid) {
       alert("make sure to fill in any fields!")
+    }
+
+    else {
+      console.log(this.newQuote);
+      this.sendNewQuote.emit(this.newQuote)
     }
   }
 

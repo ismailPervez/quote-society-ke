@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Quote } from 'src/app/models/quote';
 
 @Component({
@@ -9,6 +9,9 @@ import { Quote } from 'src/app/models/quote';
 export class QuoteComponent implements OnInit {
 
   newData: object;
+
+  // new quote from quote-container (from form)
+  @Input() newQuote: Quote;
 
   quotes: Quote[] = [
     {
@@ -84,6 +87,11 @@ export class QuoteComponent implements OnInit {
         quote.mostLiked = false;
       }
     })
+  }
+
+  // add new quote and update current quote list
+  addQuote() {
+    this.quotes.push(this.newQuote)
   }
 
   /**

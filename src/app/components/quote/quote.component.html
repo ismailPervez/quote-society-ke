@@ -1,4 +1,5 @@
 <div [ngClass]="quote.mostLiked ? 'quote mostliked' : 'quote'" *ngFor="let quote of quotes">
     <p class="quote-content">{{ quote.content }}</p>
     <app-quote-details [quote]="quote" (notify)="getUpvotes($event)"></app-quote-details>
+    <button class="btn delete-btn" (click)="deleteQuote(quote)">delete</button>
 </div>

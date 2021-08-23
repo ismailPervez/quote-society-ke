@@ -107,6 +107,16 @@ export class QuoteComponent implements OnChanges {
     this.quotes.push(this.newQuote)
   }
 
+  // delete quote
+  deleteQuote(quote: Quote) {
+    var deletedQuote = quote.id;
+    this.quotes = this.quotes.filter(quote => {
+      if (quote.id !== deletedQuote) {
+        return quote;
+      }
+    })
+  }
+
   /**
    * I think, quote should have another property called mostLiked, which will be a boolean and all will start out as false, but as a user upvotes, and the sortVotes() method runs, we update the quote property mostLiked to true for the quote which has most upvotes
    */

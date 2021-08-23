@@ -78,6 +78,7 @@ export class QuoteComponent implements OnInit {
       }
     })
 
+    // this sets the mostLiked property of the other quotes to false
     this.quotes.map(quote => {
       if (quote.id !== mostUpvotesID) {
         quote.mostLiked = false;

@@ -11,3 +11,32 @@
     box-sizing: border-box;
     font-family: var(--font);
 }
+
+.form-overlay {
+    transform: scale(0);
+}
+
+.form-overlay.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.575);
+    display: grid;
+    place-items: center;
+}
+
+.btn {
+    min-width: 70px;
+    height: 35px;
+    border: none;
+    background-color: #ED2B33FF;
+    padding: 1% 2%;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    font-family: var(--text-font);
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -2,4 +2,7 @@ header {
     background-color: #ED2B33FF;
     color: white;
     padding: 1% 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

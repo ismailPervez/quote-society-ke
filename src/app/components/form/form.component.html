@@ -1,13 +1,13 @@
 <div [ngClass]="formActiveStatus ? 'form-overlay active' : 'form-overlay'">
-    <form>
+    <form #formDetails="ngForm" (ngSubmit)="submit(formDetails)">
         <fa-icon class="icon-btn" [icon]="closeBtn"></fa-icon>
         <h1>create quote</h1>
         <label>quote content</label>
-        <input type="text" placeholder="enter the quote...">
+        <input required minlength="15" [(ngModel)]="newQuote.content" name="quote" type="text" placeholder="enter the quote..." ngModel>
         <label>quote author</label>
-        <input type="text" placeholder="enter the name of the author...">
+        <input required minlength="5" [(ngModel)]="newQuote.author" name="author" type="text" placeholder="enter the name of the author..." ngModel>
         <label>user posted</label>
-        <input type="text" placeholder="enter the name of the user...">
+        <input required minlength="5" [(ngModel)]="newQuote.user" name="user" type="text" placeholder="enter the name of the user..." ngModel>
         <button type="submit" class="btn">post quote</button>
     </form>
 </div>

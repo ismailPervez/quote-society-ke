@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Quote } from 'src/app/models/quote';
+import { QuotesService } from 'src/app/services/quotes.service';
 
 @Component({
   selector: 'app-quote',
@@ -11,22 +12,11 @@ export class QuoteComponent implements OnChanges {
   newData: object;
 
   // new quote from quote-container (from form)
-  @Input() newQuote: Quote;
+  // @Input() newQuote: Quote;
 
-  quotes: Quote[] = [
-    {
-      id: 1,
-      content: "speak a good word or remain silent",
-      author: "Prophet Muhammad (peace be upon him)",
-      user: "ismailpervez",
-      upvotes: 0,
-      downvotes: 0,
-      createDate: new Date(),
-      mostLiked: false
-    }
-  ]
+  quotes: Quote[] = [];
 
-  constructor() { }
+  constructor(private quotesService: QuotesService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     // update the quotes
@@ -39,6 +29,10 @@ export class QuoteComponent implements OnChanges {
       quote.id = quotesLength + 1;
       this.quotes.push(quote);
     }
+  }
+
+  ngOnInit() {
+    this.quotes = this.quotesService.getData();
   }
 
   getUpvotes(data: object) {
@@ -80,11 +74,6 @@ export class QuoteComponent implements OnChanges {
         quote.mostLiked = false;
       }
     })
-  }
-
-  // add new quote and update current quote list
-  addQuote() {
-    this.quotes.push(this.newQuote)
   }
 
   // delete quote

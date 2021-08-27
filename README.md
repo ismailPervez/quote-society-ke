@@ -2,7 +2,7 @@
 
 **Quote Society** is a web application where users can post quotes and other users can react to them.
 
-link to live site is [here]( https://ismailpervez.github.io/quote-society/)
+link to live site is [here](https://ismailpervez.github.io/quote-society-ke/)
 
 ## Description
 this single page web app is developed using [angular framework](https://angular.io/)
